@@ -1,7 +1,7 @@
 
 var imagesContainer = document.querySelector('#rg_s');
 
-var buttonId = '.button-google-view-image-'+(Math.random().toString(36).substr(2, 10));
+var buttonId = 'button-google-view-image-'+(Math.random().toString(36).substr(2, 10));
 
 delegate(imagesContainer, 'a.rg_l, img.rg_ic', 'click', function _event( event ) {
     var target = event.target;
@@ -26,16 +26,16 @@ delegate(imagesContainer, 'a.rg_l, img.rg_ic', 'click', function _event( event )
             console.log(button);
         }
 
-    }, 800);//1s ; wait for the click & animation TODO: make a cleaner version...
+    }, 500);//1s ; wait for the click & animation TODO: make a cleaner version...
 });
 
 function createButtonFrom( immersiveContainer, imagePanel ) {
 
-    var button = immersiveContainer.querySelector(buttonId);
+    var button = immersiveContainer.querySelector('.'+buttonId);
 
     if( !button ) {
         var button = document.createElement('a');
-        button.setAttribute('id', buttonId);
+        button.className = buttonId;
 
         button.innerText = '(i) Image';
         
