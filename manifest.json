@@ -1,15 +1,14 @@
 {
     "manifest_version": 2,
-    "name": "GoogleImagesViewButton",
+    "name": "Bring back Google Images view button",
     "version": "1.0",
-    "description": "Adds a solid red border to all webpages matching mozilla.org.",
-    "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/beastify",
+    "description": "This damn button!",
+    "homepage_url": "https://github.com/rivetchip/bring-back-google-img-view-webext",
     
-    "default_locale": "en",
-
     "icons": {
         "48": "icons/icon-48.png",
-        "96": "icons/icon-96.png"
+        "96": "icons/icon-96.png",
+        "128": "icons/icon-128.png"
     },
     "content_scripts": [
         { "matches": ["https://www.google.fr/search*"], "js": ["page-script.js"] },
