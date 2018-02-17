@@ -1,4 +1,4 @@
-# Bring back Google View Image Button!
+# Bring back Google "View Image" Button!
 
 
 ![alt text](screenshot.png "Screenshot")
@@ -11,7 +11,7 @@ Add back the "view image" button to Google Images!
 
 Support:
 - click on picture
-- similaires pictures
+- similares pictures
 - new tab picture ( aka /imgres )
 
 
