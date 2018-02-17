@@ -1,16 +1,35 @@
 
-var imagesContainer = document.querySelector('#rg_s');
-
 var buttonId = 'button-google-view-image-'+(Math.random().toString(36).substr(2, 10));
 
-delegate(imagesContainer, 'a.rg_l, img.rg_ic', 'click', function _event( event ) {
+var imagesContainer, immersiveContainerParent;
+
+
+window.addEventListener('load', function _load( event ){
+
+    // all pictures block container
+    imagesContainer = document.querySelector('#rg_s');
+
+    // black popup container of immersives
+    immersiveContainerParent = document.querySelector('#irc_bg');
+
+    // main blocks ; click event
+    delegate(imagesContainer, 'a.rg_l, img.rg_ic', 'click', onImmersiveContainerClick);
+
+    // similares pictures ; click event
+    delegate(immersiveContainerParent, 'a.rg_l, img.target_image, img.irc_rii', 'click', onImmersiveContainerClick);
+});
+
+
+
+function onImmersiveContainerClick( event ) {
     var target = event.target;
     var immersiveContainers;
+
 
     setTimeout(function(){
 
         // over top panels (3)
-        immersiveContainers = document.querySelectorAll('#irc_bg .immersive-container');
+        immersiveContainers = immersiveContainerParent.querySelectorAll('.immersive-container');
 
         for( var immersiveContainer of immersiveContainers ) {
 
@@ -22,12 +41,10 @@ delegate(imagesContainer, 'a.rg_l, img.rg_ic', 'click', function _event( event )
                 
                 descPanel.insertBefore(button, descPanel.firstChild);
             }
-
-            console.log(button);
         }
 
     }, 500);//1s ; wait for the click & animation TODO: make a cleaner version...
-});
+}
 
 function createButtonFrom( immersiveContainer, imagePanel ) {
 
@@ -55,9 +72,11 @@ function createButtonFrom( immersiveContainer, imagePanel ) {
 }
 
 function delegate( parent, target, eventType, callback ) {    
-    parent.addEventListener(eventType, function( event ) {
+    parent && parent.addEventListener(eventType, function( event ) {
         var element = event.target;
         var matchesCallback = element.matches || element.matchesSelector;
+
+        // console.log(element)
 
         if( (matchesCallback).call(element, target) ) {
             callback.call(element, event);
