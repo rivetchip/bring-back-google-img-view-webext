@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "name": "GoogleImagesViewButton",
+    "version": "1.0",
+    "description": "Adds a solid red border to all webpages matching mozilla.org.",
+    "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/beastify",
+    
+    "default_locale": "en",
+
+    "icons": {
+        "48": "icons/icon-48.png",
+        "96": "icons/icon-96.png"
+    },
+    "content_scripts": [
+        { "matches": ["https://www.google.fr/search*"], "js": ["page-script.js"] },
+        { "matches": ["https://www.google.com/search*"], "js": ["page-script.js"] }
+    ],
+
+    "permissions": [
+        "activeTab"
+    ]
+  
+  }
