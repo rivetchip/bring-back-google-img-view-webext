@@ -1,30 +1,26 @@
 
 var buttonId = 'button-google-view-image-'+(Math.random().toString(36).substr(2, 10));
 
-var imagesContainer, immersiveContainerParent;
+// all pictures block container
+var imagesContainer = document.querySelector('#rg_s');
 
+// black popup container of immersives
+var immersiveContainerParent = document.querySelector('#irc_bg');
 
-window.addEventListener('load', function _load( event ){
+// main blocks ; click event
+delegate(imagesContainer, 'a.rg_l, img.rg_ic', 'click', onImmersiveContainerClick);
 
-    // all pictures block container
-    imagesContainer = document.querySelector('#rg_s');
+// similares pictures ; click event
+delegate(immersiveContainerParent, 'a.rg_l, img.target_image, img.irc_rii', 'click', onImmersiveContainerClick);
 
-    // black popup container of immersives
-    immersiveContainerParent = document.querySelector('#irc_bg');
-
-    // main blocks ; click event
-    delegate(imagesContainer, 'a.rg_l, img.rg_ic', 'click', onImmersiveContainerClick);
-
-    // similares pictures ; click event
-    delegate(immersiveContainerParent, 'a.rg_l, img.target_image, img.irc_rii', 'click', onImmersiveContainerClick);
-});
+// from the /imgres direct page
+onImmersiveContainerClick();
 
 
 
 function onImmersiveContainerClick( event ) {
-    var target = event.target;
+    var target = event ? event.target : null;
     var immersiveContainers;
-
 
     setTimeout(function(){
 
