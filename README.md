@@ -14,8 +14,14 @@ Support:
 - similares pictures
 - new tab picture ( aka /imgres )
 
+Downloads :
+-----------
 
-Credits for the icon :
+Firefox : https://addons.mozilla.org/en-US/firefox/addon/bring-google-images-button/
+
+
+Credits :
+---------
 Rebook ( CC-BY )
 https://www.iconfinder.com/icons/254208/camera_media_photo_icon#size=128
 
